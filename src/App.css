@@ -1,0 +1,84 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: left;
+  justify-content: center;
+  margin: 30px;
+}
+
+
+.name {
+  margin-bottom: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.button-container > button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-container > :last-child,
+.button-container > :first-child {
+  background-color: #212121;
+  color: #f5f5f5;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border: 1px solid #212121;
+}
+
+
+.button-container > :last-child:hover,
+.button-container > :first-child:hover {
+  background-color: #f5f5f5;
+  color: #212121;
+  border: 1px solid #212121;
+} 
+
+.artist-name {
+  margin-top: 10px;
+  margin-bottom: 10px ;
+}
+
+.index-count {
+  margin-bottom: 10px;
+}
+
+img {
+  height: 500px;
+  width: 400px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.details-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #212121;
+  color: #f5f5f5;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  border: 1px solid #212121;
+}
+
+.details-button:hover {
+  background-color: #f5f5f5;
+  color: #212121;
+  border: 1px solid #212121;
+}
