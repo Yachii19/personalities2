@@ -49,29 +49,32 @@ export default function Gallery() {
       setExpanded(!expanded);
     };
 
+    let sculpture = hollywoodArtistList[index] || { name: '', description: '', url: '', alt: '' };
+
     return (
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, backgroundColor: '#333', color: 'white' }} className='cards'>
         <CardHeader
           avatar={<Avatar sx={{ bgcolor: red[500] }}>{sculpture.name[0]}</Avatar>}
           action={
-            <IconButton aria-label="settings">
+            <IconButton aria-label="settings" sx={{ color: 'white' }}>
               <MoreVertIcon />
             </IconButton>
           }
-          title= "HollyWood Artist"
+          title="Hollywood Artist"
           subheader={sculpture.name}
+          sx={{ color: 'white' }}  // Text color for the card header
         />
         <CardMedia
           component="img"
           height="194"
           image={sculpture.url}
-          alt="Paella dish"
+          alt="Artist image"
         />
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
+        <CardActions disableSpacing sx={{ color: 'white' }}>
+          <IconButton aria-label="add to favorites" sx={{ color: 'white' }}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="share">
+          <IconButton aria-label="share" sx={{ color: 'white' }}>
             <ShareIcon />
           </IconButton>
           <ExpandMore
@@ -79,14 +82,15 @@ export default function Gallery() {
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
+            sx={{ color: 'white' }}
           >
             <ExpandMoreIcon />
           </ExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography sx={{ marginBottom: 2 }}>
-            {sculpture.description} 
+            <Typography sx={{ marginBottom: 2, color: 'white' }}>
+              {sculpture.description}
             </Typography>
           </CardContent>
         </Collapse>
@@ -101,18 +105,47 @@ export default function Gallery() {
   function RadioButtons() {
     return (
       <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">Hollywood Artist</FormLabel>
+        <FormLabel
+          id="demo-radio-buttons-group-label"
+          sx={{ color: 'white', marginBottom: 2 }}  // Light text for the label
+        >
+          John Rein Vinuya - C-PEITEL3
+        </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           name="radio-buttons-group"
           value={hollywoodArtistList[index]?.name || ''}
+          sx={{
+            gap: 1,
+            mb: 3,
+            display: 'grid',  // Using grid layout
+            mt: '20px',
+            gridTemplateColumns: 'repeat(4, 1fr)',  // 4 columns per row
+            flexWrap: 'wrap',
+            backgroundColor: '#444',  // Dark background
+            padding: 2,
+            borderRadius: 2,  // Optional rounded corners
+          }}
         >
           {hollywoodArtistList.map((artist, i) => (
             <FormControlLabel
               key={artist.name}
               value={artist.name}
-              control={<Radio />}
-              label={artist.name}
+              control={
+                <Radio
+                  sx={{
+                    color: 'white',  // Light radio button color
+                    '&.Mui-checked': {
+                      color: '#ff4081',  // Change color when checked (you can choose any color)
+                    },
+                  }}
+                />
+              }
+              label={
+                <Typography sx={{ color: 'white' }}>  {/* Light text color for labels */}
+                  {artist.name}
+                </Typography>
+              }
               onChange={() => handleRadioClick(i)}
             />
           ))}
@@ -121,16 +154,27 @@ export default function Gallery() {
     );
   }
 
-
-  let sculpture = hollywoodArtistList[index] || { name: '', description: '', url: '', alt: '' };
-
   return (
     <Container maxWidth="sm">
-      <Box component="section" sx={{ p: 2, border: '1px dashed grey' }}>
-        <div className="name">John Rein Vinuya</div>
+      <Box
+        component="section"
+        sx={{
+          p: 2,
+          boxShadow: 3,
+          borderRadius: 2,
+          bgcolor: '#222',  // Dark background for the container
+          color: 'white',  // Light text color
+          padding: 5,
+          width: '700px',
+        }}
+      >
+        <div className="name" style={{ color: 'white' }}>
+          Hollywood Artist
+        </div>
         <RadioButtons />
-        <ArtistCards />
-        
+        <div className="card-container">
+          <ArtistCards />
+        </div>
       </Box>
     </Container>
   );
