@@ -11,12 +11,17 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
-    
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.4",
+    "@mui/material": "^6.4.4",
+    "@mui/styled-engine-sc": "^6.4.3",
     "gh-pages": "^6.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
